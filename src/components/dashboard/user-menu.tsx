@@ -6,6 +6,7 @@ import { LogOut, Settings } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -29,7 +30,7 @@ export function UserMenu({ user }: { user: AuthUser }) {
 
   async function handleSignOut() {
     await backend.signOut();
-    router.push("/");
+    router.push("/sign-in");
   }
 
   return (
@@ -44,10 +45,12 @@ export function UserMenu({ user }: { user: AuthUser }) {
         }
       />
       <DropdownMenuContent align="end" className="w-56">
-        <DropdownMenuLabel className="flex flex-col gap-0.5 font-normal">
-          <span className="truncate text-sm font-medium">{user.full_name || "Your account"}</span>
-          <span className="truncate text-xs text-muted-foreground">{user.email}</span>
-        </DropdownMenuLabel>
+        <DropdownMenuGroup>
+          <DropdownMenuLabel className="flex flex-col gap-0.5 font-normal">
+            <span className="truncate text-sm font-medium">{user.full_name || "Your account"}</span>
+            <span className="truncate text-xs text-muted-foreground">{user.email}</span>
+          </DropdownMenuLabel>
+        </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem
           render={
