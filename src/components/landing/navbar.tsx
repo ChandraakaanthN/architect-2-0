@@ -26,8 +26,8 @@ export function LandingNavbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button variant="ghost" size="sm" render={<Link href="/sign-in">Sign in</Link>} />
-          <Button size="sm" render={<Link href="/sign-up">Get started</Link>} />
+          <Button variant="ghost" size="sm" nativeButton={false} render={<Link href="/sign-in">Sign in</Link>} />
+          <Button size="sm" nativeButton={false} render={<Link href="/sign-up">Get started</Link>} />
         </div>
       </div>
     </header>
